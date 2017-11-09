@@ -15,6 +15,7 @@
 		CD6149341FB46C42002EB2B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6149331FB46C42002EB2B0 /* main.m */; };
 		CD61493D1FB46E27002EB2B0 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61493C1FB46E27002EB2B0 /* LocationManager.m */; };
 		CD6149401FB47221002EB2B0 /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61493F1FB47221002EB2B0 /* WeatherManager.m */; };
+		CD6149441FB4B35A002EB2B0 /* WeatherForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6149431FB4B35A002EB2B0 /* WeatherForecastModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		CD61493C1FB46E27002EB2B0 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		CD61493E1FB47221002EB2B0 /* WeatherManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
 		CD61493F1FB47221002EB2B0 /* WeatherManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherManager.m; sourceTree = "<group>"; };
+		CD6149421FB4B35A002EB2B0 /* WeatherForecastModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherForecastModel.h; sourceTree = "<group>"; };
+		CD6149431FB4B35A002EB2B0 /* WeatherForecastModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherForecastModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 		CD6149411FB4B265002EB2B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CD6149421FB4B35A002EB2B0 /* WeatherForecastModel.h */,
+				CD6149431FB4B35A002EB2B0 /* WeatherForecastModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				CD61493D1FB46E27002EB2B0 /* LocationManager.m in Sources */,
 				CD6149291FB46C42002EB2B0 /* ViewController.m in Sources */,
 				CD6149341FB46C42002EB2B0 /* main.m in Sources */,
+				CD6149441FB4B35A002EB2B0 /* WeatherForecastModel.m in Sources */,
 				CD6149261FB46C42002EB2B0 /* AppDelegate.m in Sources */,
 				CD6149401FB47221002EB2B0 /* WeatherManager.m in Sources */,
 			);
