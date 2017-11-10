@@ -16,6 +16,7 @@
 		CD61493D1FB46E27002EB2B0 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61493C1FB46E27002EB2B0 /* LocationManager.m */; };
 		CD6149401FB47221002EB2B0 /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD61493F1FB47221002EB2B0 /* WeatherManager.m */; };
 		CD6149441FB4B35A002EB2B0 /* WeatherForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6149431FB4B35A002EB2B0 /* WeatherForecastModel.m */; };
+		CD69F5541FB5E13A00B97F6A /* ForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69F5531FB5E13A00B97F6A /* ForecastTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		CD61493F1FB47221002EB2B0 /* WeatherManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherManager.m; sourceTree = "<group>"; };
 		CD6149421FB4B35A002EB2B0 /* WeatherForecastModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherForecastModel.h; sourceTree = "<group>"; };
 		CD6149431FB4B35A002EB2B0 /* WeatherForecastModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherForecastModel.m; sourceTree = "<group>"; };
+		CD69F5521FB5E13A00B97F6A /* ForecastTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForecastTableViewCell.h; sourceTree = "<group>"; };
+		CD69F5531FB5E13A00B97F6A /* ForecastTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,17 +70,11 @@
 		CD6149231FB46C42002EB2B0 /* weatherTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				CD6149411FB4B265002EB2B0 /* Models */,
 				CD61493A1FB46D4B002EB2B0 /* Managers */,
-				CD6149241FB46C42002EB2B0 /* AppDelegate.h */,
-				CD6149251FB46C42002EB2B0 /* AppDelegate.m */,
-				CD6149271FB46C42002EB2B0 /* ViewController.h */,
-				CD6149281FB46C42002EB2B0 /* ViewController.m */,
-				CD61492A1FB46C42002EB2B0 /* Main.storyboard */,
-				CD61492D1FB46C42002EB2B0 /* Assets.xcassets */,
-				CD61492F1FB46C42002EB2B0 /* LaunchScreen.storyboard */,
-				CD6149321FB46C42002EB2B0 /* Info.plist */,
-				CD6149331FB46C42002EB2B0 /* main.m */,
+				CD6149411FB4B265002EB2B0 /* Models */,
+				CD69F5501FB5E0CB00B97F6A /* Supporting Files */,
+				CD69F54F1FB5E0AA00B97F6A /* ViewControllers */,
+				CD69F5511FB5E11100B97F6A /* Views */,
 			);
 			path = weatherTestApp;
 			sourceTree = "<group>";
@@ -100,6 +97,38 @@
 				CD6149431FB4B35A002EB2B0 /* WeatherForecastModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CD69F54F1FB5E0AA00B97F6A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD6149271FB46C42002EB2B0 /* ViewController.h */,
+				CD6149281FB46C42002EB2B0 /* ViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CD69F5501FB5E0CB00B97F6A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD6149241FB46C42002EB2B0 /* AppDelegate.h */,
+				CD6149251FB46C42002EB2B0 /* AppDelegate.m */,
+				CD61492A1FB46C42002EB2B0 /* Main.storyboard */,
+				CD61492D1FB46C42002EB2B0 /* Assets.xcassets */,
+				CD61492F1FB46C42002EB2B0 /* LaunchScreen.storyboard */,
+				CD6149321FB46C42002EB2B0 /* Info.plist */,
+				CD6149331FB46C42002EB2B0 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD69F5511FB5E11100B97F6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD69F5521FB5E13A00B97F6A /* ForecastTableViewCell.h */,
+				CD69F5531FB5E13A00B97F6A /* ForecastTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +208,7 @@
 				CD6149441FB4B35A002EB2B0 /* WeatherForecastModel.m in Sources */,
 				CD6149261FB46C42002EB2B0 /* AppDelegate.m in Sources */,
 				CD6149401FB47221002EB2B0 /* WeatherManager.m in Sources */,
+				CD69F5541FB5E13A00B97F6A /* ForecastTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8389A7644;
-				INFOPLIST_FILE = weatherTestApp/Info.plist;
+				INFOPLIST_FILE = "weatherTestApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.serhii-kostiuk.weatherTestApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -328,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8389A7644;
-				INFOPLIST_FILE = weatherTestApp/Info.plist;
+				INFOPLIST_FILE = "weatherTestApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.serhii-kostiuk.weatherTestApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
