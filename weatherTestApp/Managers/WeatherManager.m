@@ -8,6 +8,8 @@
 
 #import "WeatherManager.h"
 #import "LocationManager.h"
+#import "WeatherForecastModel.h"
+
 #import <CoreLocation/CoreLocation.h>
 
 typedef NS_ENUM(NSUInteger, weatherApiType) {
@@ -32,40 +34,37 @@ typedef NS_ENUM(NSUInteger, weatherApiType) {
 }
 
 - (void)userLocation:(CLLocation *)location andCityName:(NSString *)cityName {
-    [self getWeatherDataFromApiType:weatherUnderground byLocation:location];
+    [self getWeatherDataFromApiType:weatherUnderground byLocation:location orCityName:cityName];
 }
 
-- (void)getWeatherDataFromApiType:(weatherApiType)apiType byLocation:(CLLocation*)location {
+- (void)getWeatherDataFromApiType:(weatherApiType)apiType byLocation:(CLLocation*)location orCityName:(NSString*)cityName {
     NSString *apiKey = [self weatherApiKeyForType:apiType];
 
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.openweathermap.org/data/2.5/forecast?q=Kiev,ua&units=metric&appid=%@&lang=ua",
-//                                       /*location.coordinate.latitude,
-//                                       location.coordinate.longitude,*/
-//                                       apiKey]];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/q/UA/Kiev.json",
-                                       /*location.coordinate.latitude,
-                                        location.coordinate.longitude,*/
-                                       apiKey]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:EN/q/UA/%@.json",                                     apiKey, cityName]];
    
     
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSLog(@"response = %@", data);
         
         if (data == nil) {
             return;
         }
         
         NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//        NSLog(@"response = %@", responseJson);
+
         
         NSDictionary *forecast = [responseJson valueForKey:@"forecast"];
         NSDictionary *simpleForecast = [forecast valueForKey:@"simpleforecast"];
 
         NSDictionary *forecastDay = [simpleForecast valueForKey:@"forecastday"];
 
-        NSString *icon = [forecastDay valueForKey:@"low"];
-         NSLog(@"pretty = %@", forecast);
-
+        NSMutableArray *forecastArray = [NSMutableArray array];
+        
+        for (NSDictionary *dic in forecastDay) {
+            WeatherForecastModel *model = [[WeatherForecastModel alloc] initWithForecastDictionary:dic];
+            [forecastArray addObject:model];
+        }
+        
+        [self.delegate getLatestForecast:forecastArray];
     }];
     
     [task resume];

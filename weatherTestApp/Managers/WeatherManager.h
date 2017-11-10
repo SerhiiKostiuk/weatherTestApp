@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol weatherManagerDelegate <NSObject>
+
+- (void)getLatestForecast:(NSMutableArray *)forecastArray;
+
+@end
+
 @interface WeatherManager : NSObject
+@property (weak, nonatomic) id<weatherManagerDelegate> delegate;
 
 @end
