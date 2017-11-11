@@ -37,11 +37,7 @@
     self.weatherManager.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageUpdated) name:@"ImageDownloaded" object:nil];
     
-    self.weatherImageView.hidden = YES;
-    self.weatherTypeLabel.hidden = YES;
-    self.tempMaxLabel.hidden = YES;
-    self.tempMinLabel.hidden = YES;
-    self.tempLabel.hidden = YES;
+    [self isElementHidden:YES];
 
     self.backgroundImageView.image = [UIImage imageNamed:@"Cloudy"];
 }
@@ -58,14 +54,18 @@
         self.tempLabel.text = [NSString stringWithFormat:@"%@°", self.todayForecast.weatherTempHigh];
         self.weatherTypeLabel.text = self.todayForecast.weatherType;
         
-        self.weatherImageView.hidden = NO;
-        self.weatherTypeLabel.hidden = NO;
-        self.tempMaxLabel.hidden = NO;
-        self.tempMinLabel.hidden = NO;
-        self.tempLabel.hidden = NO;
+        [self isElementHidden:NO];
         
         self.backgroundImageView.image = [self updateBackgroundImage];
     });
+}
+
+- (void)isElementHidden:(BOOL)isHidden {
+    self.weatherImageView.hidden = isHidden;
+    self.weatherTypeLabel.hidden = isHidden;
+    self.tempMaxLabel.hidden = isHidden;
+    self.tempMinLabel.hidden = isHidden;
+    self.tempLabel.hidden = isHidden;
 }
 
 - (void)imageUpdated {

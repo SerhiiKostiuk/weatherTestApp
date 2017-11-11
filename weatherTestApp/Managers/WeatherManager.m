@@ -40,7 +40,7 @@ typedef NS_ENUM(NSUInteger, weatherApiType) {
 - (void)getWeatherDataFromApiType:(weatherApiType)apiType byLocation:(CLLocation*)location orCityName:(NSString*)cityName {
     NSString *apiKey = [self weatherApiKeyForType:apiType];
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:EN/q/UA/%@.json",                                     apiKey, cityName]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:EN/q/%f,%f.json",                                     apiKey, location.coordinate.latitude, location.coordinate.longitude]];
    
     
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
